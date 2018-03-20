@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/jsp/common/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/common/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp" />
+		<put-attribute name="chatroom" value="/WEB-INF/jsp/common/chatroom.jsp" />
+		<put-attribute name="settings" value="/WEB-INF/jsp/common/settings.jsp" />
+	</definition>
+	
+	<!--	 configure tiles-form pages here 	-->
+	<definition name="latestnews" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="Latest News" />
+		<put-attribute name="description" value="this page used for submitting latest news content in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/latestnews.jsp" />
+	</definition>
+
+	<definition name="entertainment" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="Entertainment" />
+		<put-attribute name="description" value="this page used for submitting entertainment news content in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/entertainment.jsp" />
+	</definition>
+
+	<definition name="sports" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="Sports" />
+		<put-attribute name="description" value="this page used for submitting sports news content in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/sports.jsp" />
+	</definition>
+
+	<definition name="business" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="Business" />
+		<put-attribute name="description" value="this page used for submitting business news content in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/business.jsp" />
+	</definition>
+
+	<definition name="eduemp" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="Education and Employment" />
+		<put-attribute name="description" value="this page used for submitting education and employment news content in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/eduemp.jsp" />
+	</definition>
+
+	<definition name="family" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="Family" />
+		<put-attribute name="description" value="this page used for submitting family news content in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/family.jsp" />
+	</definition>
+	
+	<definition name="videos" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="Youtube Videos Data" />
+		<put-attribute name="description" value="in this form we can submit youtube video information for live" />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/videosData.jsp" />
+	</definition>
+	
+	
+	<definition name="mla" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="MLA Information" />
+		<put-attribute name="description" value="in this form we can submit MLA information in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/politicMLA.jsp" />
+	</definition>
+	
+	<definition name="mp" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="MP Information" />
+		<put-attribute name="description" value="in this form we can submit MP information in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/politicMP.jsp" />
+	</definition>
+	<definition name="mlc" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="MLC Information" />
+		<put-attribute name="description" value="in this form we can submit MLC information in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/politicMLC.jsp" />
+	</definition>
+	<definition name="zptc" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="ZPTC Information" />
+		<put-attribute name="description" value="in this form we can submit ZPTC information in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/politicZPTC.jsp" />
+	</definition>
+	<definition name="corporation" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="Corporation Information" />
+		<put-attribute name="description" value="in this form we can submit Corporation information in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/politicCORP.jsp" />
+	</definition>
+	<definition name="dccb" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="DCCB Information" />
+		<put-attribute name="description" value="in this form we can submit DCCB information in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/politicDCCB.jsp" />
+	</definition>
+
+	<definition name="pcc" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="PCC Committees Information" />
+		<put-attribute name="description" value="in this form we can submit PCC Committees in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/partyPCC.jsp" />
+	</definition>
+	<definition name="womens" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="Womens Committees  Information" />
+		<put-attribute name="description" value="in this form we can submit Womens Committees information in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/PartyWomens.jsp" />
+	</definition>
+	<definition name="youth" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="Youth Committees  Information" />
+		<put-attribute name="description" value="in this form we can submit Youth Committees information in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/partyYouth.jsp" />
+	</definition>
+	<definition name="nsui" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="NSUI Information" />
+		<put-attribute name="description" value="in this form we can submit NSUI information in different languages." />
+		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/partyNSUI.jsp" />
+	</definition>
+	
+	
+
+</tiles-definitions>

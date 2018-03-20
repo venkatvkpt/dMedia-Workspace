@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+	<context:annotation-config />
+	<context:component-scan base-package="com" />
+	
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+
+		<property name="location">
+			<value>classpath:database.properties</value>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}"></property>
+		<property name="url" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
+
+	<bean id="mysessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+
+		<property name="packagesToScan">
+			<list>
+				<value>com</value>
+			</list>
+		</property>
+		
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				 <prop key="hibernate.hbm2ddl.auto">${hibernate.auto}</prop>							  
+			       <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>			           
+			 </props>
+		</property>
+	</bean>
+
+	<bean id="hTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="mysessionFactory"></property>
+	</bean>
+	<bean id="HibernateConnection" class="com.commons.DBConnectionPool">
+		<property name="template" ref="hTemplate"></property>
+	</bean>
+	
+	<bean id="jTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<bean id="JdbcTemplate" class="com.adminmodule.dao.AdminModuleDao">
+		<property name="jdbcTemplate" ref="jTemplate"></property>
+	</bean>
+	<bean id="JdbcConnection" class="com.commons.DBConnectionPool">
+		<property name="jdbcTemplate" ref="jTemplate"></property>
+	</bean>
+	<bean id="AjaxJdbcTemplate" class="com.adminmodule.dao.AjaxControllerDao">
+		<property name="jdbcTemplate" ref="jTemplate"></property>
+	</bean>
+	
+	<bean id="dmediaJdbcTemplate" class="com.dmedia.dao.DMediaModuleDao">
+		<property name="jdbcTemplate" ref="jTemplate"></property>
+	</bean>
+
+
+	 <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="mysessionFactory" />
+    </bean>
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!--  enable the configuration of transactional behavior based on annotations  -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+</beans>

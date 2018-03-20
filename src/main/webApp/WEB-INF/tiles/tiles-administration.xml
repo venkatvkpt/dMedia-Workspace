@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="base.definition"
+		template="/WEB-INF/jsp/common/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/common/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp" />
+		<put-attribute name="chatroom" value="/WEB-INF/jsp/common/chatroom.jsp" />
+		<put-attribute name="settings" value="/WEB-INF/jsp/common/settings.jsp" />	
+	</definition>
+
+	<!-- configure tiles-administration pages here -->
+	
+		<definition name="createUser" extends="base.definition">
+		<put-attribute name="NavigationName" value="Administration" />
+		<put-attribute name="title" value="Create Users" />
+		<put-attribute name="description" value="this page for create users /edit users /delate users" />
+		<put-attribute name="body" value="/WEB-INF/jsp/administration/createUser.jsp" />
+		</definition>
+		
+		<definition name="createRole" extends="base.definition">
+		<put-attribute name="NavigationName" value="Administration" />
+		<put-attribute name="title" value="Create Roles" />
+		<put-attribute name="description" value="this page for create roles /edit roles /delate roles" />
+		<put-attribute name="body" value="/WEB-INF/jsp/administration/createRole.jsp" />
+		</definition>
+		
+		<definition name="createService" extends="base.definition">
+		<put-attribute name="NavigationName" value="Administration" />
+		<put-attribute name="title" value="Create Services" />
+		<put-attribute name="description" value="this page for create services /edit services /delate services" />
+		<put-attribute name="body" value="/WEB-INF/jsp/administration/createService.jsp" />
+		</definition>
+		
+		<definition name="mapServices" extends="base.definition">
+		<put-attribute name="NavigationName" value="Administration" />
+		<put-attribute name="title" value="Map Services" />
+		<put-attribute name="description" value="this page for allocate services based on roles /based on users" />
+		<put-attribute name="body" value="/WEB-INF/jsp/administration/mapServices.jsp" />
+		</definition>
+		
+		
+		
+		
+
+</tiles-definitions>

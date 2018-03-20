@@ -1,0 +1,259 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Portal</groupId>
+  <artifactId>Portal</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+	<name>PORTAL</name>
+	<description>Spring 3.0, Spring Security 3.0, Hibernate 3.0, Apache Tiles 2.0, Oracle DB Based Project </description>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<id>VR</id>
+			<name>Venkat</name>
+			<email>venki119@gmail.com</email>
+		</developer>
+	</developers>
+	<properties>
+		<jdk.version>1.6</jdk.version>
+		<jstl.version>1.2</jstl.version>
+		<jta.version>1.1</jta.version>
+		<servlet.version>3.0.1</servlet.version>
+		<spring.version>3.2.2.RELEASE</spring.version>
+		<spring.security.version>3.2.3.RELEASE</spring.security.version>
+		<apachetiles.version>2.2.2</apachetiles.version>
+		<hibernate.version>3.3.2.GA</hibernate.version>
+		<apache-connection-pooling-version>1.4</apache-connection-pooling-version>
+	</properties>
+
+	<dependencies>
+	<!-- =============================================================Java Dependencies============================================================  -->
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>${jta.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>	
+		<dependency>
+	        <groupId>javax.servlet</groupId>
+	        <artifactId>javax.servlet-api</artifactId>
+	        <version>${servlet.version}</version>
+		</dependency>
+				<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.5.5</version>
+		</dependency>
+	
+	<!-- =============================================================Spring Dependencies============================================================  -->
+		<dependency><!-- CORE -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency><!-- ORM -->
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-orm</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<dependency><!-- WEB -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency><!-- WEB MVC -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency><!-- JDBC -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+	<!-- =============================================================Spring Security Dependencies==================================================  --><!--
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+
+	--><!-- =============================================================Apache Tiles Dependencies=======================================================  -->		
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-core</artifactId>
+            <version>${apachetiles.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-api</artifactId>
+            <version>${apachetiles.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-servlet</artifactId>
+            <version>${apachetiles.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-jsp</artifactId>
+            <version>${apachetiles.version}</version>
+        </dependency>
+		
+	<!-- =============================================================DataBase Connection Dependencies=====================================================  -->
+		<dependency>
+		    <groupId>com.oracle</groupId>
+		    <artifactId>ojdbc</artifactId>
+		    <version>14</version>
+		    <scope>system</scope>
+		    <systemPath>${basedir}\Lib\ojdbc14.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${apache-connection-pooling-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>${apache-connection-pooling-version}</version>
+		</dependency>
+	<!-- =============================================================Logging Dependencies=============================================================  -->	
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId>
+		    <version>1.5.8</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>sl4j</artifactId>
+		    <version>1.5.8</version>
+		    <scope>system</scope>
+		    <systemPath>${basedir}\Lib\slf4j.jar</systemPath>
+		</dependency>
+		<dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		    <version>1.2.17</version>
+		</dependency>
+		
+		
+	<!-- =============================================================Hibernate Dependencies===========================================================  -->		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
+	<!-- =============================================================JSON Dependencies===========================================================  -->	
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>2.7.5</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-mapper-asl</artifactId>
+		    <version>1.9.13</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20090211</version>
+		</dependency>
+        <dependency>
+              <groupId>com.fasterxml.jackson.core</groupId>
+              <artifactId>jackson-databind</artifactId>
+              <version>2.7.5</version>
+        </dependency>
+	<!-- ===================================================Multi-part file support Dependencies==================================================  -->				
+       <dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+		
+	<!-- ===================================================Other Supported Dependencies==================================================  -->	
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>joda-time</groupId>
+		    <artifactId>joda-time</artifactId>
+		    <version>2.3</version>
+		</dependency>
+		
+		
+		
+		</dependencies>
+		
+		
+  <build>
+    <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
+    <outputDirectory>${basedir}/src/main/webApp/WEB-INF/classes</outputDirectory>
+    <resources>
+      <resource>
+        <directory>${basedir}/src/main/java</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <webappDirectory>${basedir}/src/main/webApp</webappDirectory>
+          <warSourceDirectory>${basedir}/src/main/webApp</warSourceDirectory>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="base.definition"
+		template="/WEB-INF/jsp/common/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/common/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp" />
+		<put-attribute name="chatroom" value="/WEB-INF/jsp/common/chatroom.jsp" />
+		<put-attribute name="settings" value="/WEB-INF/jsp/common/settings.jsp" />	
+	</definition>
+
+	<!-- configure tiles-authentication pages here -->
+	<definition name="login"  template="/WEB-INF/jsp/authentication/login.jsp" />
+	<definition name="login_lockscreen"  template="/WEB-INF/jsp/authentication/login_lockscreen.jsp" />
+	<definition name="forget"  template="/WEB-INF/jsp/authentication/forget_password.jsp" />
+	<definition name="reset"  template="/WEB-INF/jsp/authentication/reset_password.jsp" />
+	
+	
+	<definition name="access" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="Welcome To Portal" />
+		<put-attribute name="description" value="overview &amp; stats" />
+		<put-attribute name="body" value="/WEB-INF/jsp/authentication/welcome.jsp" />
+	</definition>
+	
+	<definition name="invalidAccess" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="" />
+		<put-attribute name="description" value="" />
+		<put-attribute name="body" value="/WEB-INF/jsp/authentication/invalidAccess.jsp" />
+	</definition>
+	
+		
+
+</tiles-definitions>

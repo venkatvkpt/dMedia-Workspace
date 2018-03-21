@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dmedia.entity.NewsBean;
 import com.dmedia.entity.PoliticiansBean;
+import com.dmedia.entity.VideoDataBean;
 
 @Repository
 public class DMediaModuleDao {
@@ -91,7 +92,7 @@ public class DMediaModuleDao {
 	
 	public String getNewsSeqValue(String table){
 		String count ="1";
-		String sql="SELECT NVL(MAX(NEWS_ID),0)+1 AS SEQ FROM "+table.toUpperCase();
+		String sql="SELECT NVL(MAX(TO_NUMBER(NEWS_ID)),0)+1 AS SEQ FROM "+table.toUpperCase();
 		try{
 			count = jdbcTemplate.queryForObject(sql,String.class);
 		}catch(Exception e){
@@ -109,6 +110,22 @@ public class DMediaModuleDao {
 			e.printStackTrace();
 		}
 		return lst;		
+	}
+	
+	public boolean insertValuesVideos(String sql,String table, VideoDataBean bean) {
+		String sqlIvl="SELECT NVL(MAX(TO_NUMBER(VIDEO_ID)),0)+1 AS SEQ FROM "+table;
+		String videoId =jdbcTemplate.queryForObject(sqlIvl,String.class);
+		
+		int i =jdbcTemplate.update(sql,new Object[]{videoId,bean.getYoutubeCode(),bean.getTitle(),
+				bean.getDuration(),bean.getNoOfViewed(),
+				bean.getState(),bean.getDistrict(),bean.getLoksaba(),bean.getAssembly(),bean.getMandal(),bean.getVillage(),
+				bean.getUser(),bean.getParty()});
+		if(i>0){
+			return true;
+		}else{
+			return false;	
+		}	
+		
 	}
 	
 	public boolean insertValuesPolitics(String table,String lang,
@@ -179,6 +196,8 @@ public class DMediaModuleDao {
 		
 		return result;
 	}
+
+	
 
 
 }

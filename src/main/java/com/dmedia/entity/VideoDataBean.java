@@ -1,29 +1,24 @@
 package com.dmedia.entity;
 
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import org.springframework.web.multipart.MultipartFile;
 
 import com.dmedia.dao.DMediaModuleDao;
 import com.spring.beans.Beans;
 
 public class VideoDataBean {
 
-	private String news_id;
+	private String videoId;
 	
-	private String language;
+	private String youtubeCode;
 
 	private String title;
 
-	private String discription;
-
-	private String imagepath;
+	private String duration;
 
 	private int noOfViewed = 0;
-
-	private String viewedLocation = "Android";
+	
+	private String language;
 
 	private int state;
 
@@ -37,26 +32,27 @@ public class VideoDataBean {
 
 	private int village;
 
-	private Date date;
-
 	private String user = "dmedia";
-
-	private String source = "dmedia";
-
-	private String receipt_no = "Receipt";
 
 	private int party;
 	
 	private String notification = "false";
 
-	private MultipartFile image;
 
-	public String getLanguage() {
-		return language;
+	public String getVideoId() {
+		return videoId;
 	}
 
-	public void setLanguage(String language) {
-		this.language = language;
+	public void setVideoId(String videoId) {
+		this.videoId = videoId;
+	}
+
+	public String getYoutubeCode() {
+		return youtubeCode;
+	}
+
+	public void setYoutubeCode(String youtubeCode) {
+		this.youtubeCode = youtubeCode;
 	}
 
 	public String getTitle() {
@@ -67,12 +63,12 @@ public class VideoDataBean {
 		this.title = title;
 	}
 
-	public String getDiscription() {
-		return discription;
+	public String getDuration() {
+		return duration;
 	}
 
-	public void setDiscription(String discription) {
-		this.discription = discription;
+	public void setDuration(String duration) {
+		this.duration = duration;
 	}
 
 	public int getNoOfViewed() {
@@ -83,36 +79,12 @@ public class VideoDataBean {
 		this.noOfViewed = noOfViewed;
 	}
 
-	public String getViewedLocation() {
-		return viewedLocation;
-	}
-
-	public void setViewedLocation(String viewedLocation) {
-		this.viewedLocation = viewedLocation;
-	}
-
 	public int getState() {
 		return state;
 	}
 
 	public void setState(int state) {
 		this.state = state;
-	}
-
-	public MultipartFile getImage() {
-		return image;
-	}
-
-	public void setImage(MultipartFile image) {
-		this.image = image;
-	}
-
-	public String getImagepath() {
-		return imagepath;
-	}
-
-	public void setImagepath(String imagepath) {
-		this.imagepath = imagepath;
 	}
 
 	public int getDistrict() {
@@ -155,36 +127,12 @@ public class VideoDataBean {
 		this.village = village;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
 	public String getUser() {
 		return user;
 	}
 
 	public void setUser(String user) {
 		this.user = user;
-	}
-
-	public String getSource() {
-		return source;
-	}
-
-	public void setSource(String source) {
-		this.source = source;
-	}
-
-	public String getReceipt_no() {
-		return receipt_no;
-	}
-
-	public void setReceipt_no(String receiptNo) {
-		receipt_no = receiptNo;
 	}
 
 	public int getParty() {
@@ -208,20 +156,20 @@ public class VideoDataBean {
 		StatesList = statesList;
 	}
 
-	public void setNews_id(String news_id) {
-		this.news_id = news_id;
-	}
-
-	public String getNews_id() {
-		return news_id;
-	}
-
 	public void setNotification(String notification) {
 		this.notification = notification;
 	}
 
 	public String getNotification() {
 		return notification;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
+	public String getLanguage() {
+		return language;
 	}
 
 }

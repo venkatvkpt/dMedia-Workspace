@@ -39,35 +39,30 @@ public class VideoDataController {
 			@ModelAttribute("video") VideoDataBean bean, ModelMap model,
 			HttpServletRequest req, HttpServletResponse res,
 			RedirectAttributes redirectAttrs) throws IOException {
-	/*	DMediaModuleDao dao = Beans.dMediaModuleDao;
-		String table = "NEWS_LATEST_EN";
+		DMediaModuleDao dao = Beans.dMediaModuleDao;
+		String table = "VIDEO_INFO_EN";
 
 		if (bean.getLanguage().equalsIgnoreCase("te")) {
-			table = "NEWS_LATEST_TE";
+			table = "VIDEO_INFO_TE";
 		} else if (bean.getLanguage().equalsIgnoreCase("hi")) {
-			table = "NEWS_LATEST_HI";
+			table = "VIDEO_INFO_HI";
 		} else if (bean.getLanguage().equalsIgnoreCase("ur")) {
-			table = "NEWS_LATEST_UR";
+			table = "VIDEO_INFO_UR";
 		} else {
-			table = "NEWS_LATEST_EN";
+			table = "VIDEO_INFO_EN";
 		}
-		bean.setNews_id(dao.getNewsSeqValue(table));
-		bean.setImagepath(ImageUpload.uploadImage(bean.getImage(), "ln"));
 
 		bean.setTitle(URLDecoder.decode(bean.getTitle(), "UTF-8"));
-		bean.setDiscription(URLDecoder.decode(bean.getDiscription(), "UTF-8"));
+		
 
-		String sql = "INSERT INTO "
-				+ table
-				+ "(NEWS_ID, LANGUAGE_ID, NEWS_HEADLINE, NEWS_CONTENT, IMAGE_PATH, "
-				+ "NO_OF_VIEWED, VIEWED_LOCATION, STATE_ID, DISTRICT_ID, LOKSABHA_ID, ASSEMBLY_ID, MANDAL_ID, VILLAGE_ID,"
-				+ " CREATED_DATE, CREATED_BY, SOURCE_OF_NEWS, RECEIPT_NO, PARTY_ID) "
-				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO  "+table+"(VIDEO_ID, YOUTUBE_CODE, VIDEO_TITLE, VIDEO_DURATION, NO_OF_VIEWED," +
+				" STATE_ID, DISTRICT_ID, LOKSABHA_ID, ASSEMBLY_ID, MANDAL_ID, VILLAGE_ID, CREATED_DATE, CREATED_BY, PARTY_ID) "+
+    " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, ?, ?)";
 
-		if (dao.insertValuesNews(sql,bean)) {
+		if (dao.insertValuesVideos(sql,table,bean)) {
 			if(bean.getNotification().equalsIgnoreCase("true")){
 				
-				dao.insertValuesNotification(bean);
+				//dao.insertValuesNotification(bean);
 			}
 
 			redirectAttrs.addFlashAttribute("messenger", MessageDispatcher
@@ -82,7 +77,7 @@ public class VideoDataController {
 									.message(
 											"Latest News Article Submission is Failed,Try Again.",
 											false));
-		}*/
+		}
 		redirectAttrs.addFlashAttribute("messenger", MessageDispatcher
 				.message(AuditLog.userActivity(
 						"New Latest News Article Submited.", req), true));

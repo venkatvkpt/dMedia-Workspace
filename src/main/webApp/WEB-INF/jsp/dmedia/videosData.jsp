@@ -142,7 +142,7 @@ select option[disabled]:first-child {
 
    <br>
 			<form:form method="post" class="form form-horizontal" commandName="video"
-				enctype="multipart/form-data" action="./addVideoData.htm">
+				enctype="multipart/form-data" action="./addVideoData.htm" onsubmit="return selectValidate()">
 
 				<div class="panel panel-white">
 
@@ -181,7 +181,7 @@ select option[disabled]:first-child {
 								<div class="form-group" >
 										<label>Assembly Name</label>
 										
-																			<form:select class="form-control selectpicker required" data-live-search="true" 
+									<form:select class="form-control selectpicker required" data-live-search="true" 
 											id="assembly" path="assembly" >
 												 <option value='0'>--Select a Assembly--</option>
 												
@@ -198,7 +198,7 @@ select option[disabled]:first-child {
 								<div class="form-group" style="padding-right: 20px">
 										<label>Mandal Name</label>
 
-																			<form:select class="form-control selectpicker required" data-live-search="true" 
+											<form:select class="form-control selectpicker required" data-live-search="true" 
 											id="mandal" path="mandal" >
 												 <option value='0'>--Select a Mandal--</option>
 												
@@ -212,7 +212,7 @@ select option[disabled]:first-child {
 							<div class="form-group" style="padding-right: 20px">
 									<label>Village Name</label>
 
-																												<form:select class="form-control selectpicker required" data-live-search="true" 
+									<form:select class="form-control selectpicker required" data-live-search="true" 
 											id="village" path="village" >
 												 <option value='0'>--Select a Village--</option>
 												
@@ -225,12 +225,11 @@ select option[disabled]:first-child {
 
 								<div class="form-group" >
 										<label>Party Name</label>
-
-																																						<form:select class="form-control selectpicker required" data-live-search="true" 
+						<form:select class="form-control selectpicker required" data-live-search="true" 
 											id="party" path="party" >
 
-											<option value="0">--Select a Party--</option>
-											<option value="1" >ALL</option>
+											<option value="1">--Select a Party--</option>
+											<option value="0" >ALL</option>
 											<option value="2" >Congress</option>
 											<option value="3" >CPI</option>
 											<option value="4" >CPM</option>
@@ -249,7 +248,7 @@ select option[disabled]:first-child {
 				<div class="col-md-3" >
 				<div class="form-group" style="padding-right:25px">
 					<label for="form-field-select-2"> Language</label>
-							<form:select class="cs-select cs-skin-elastic" path="language">
+							<form:select class="cs-select cs-skin-elastic" path="language" id="language">
 								<form:option value="0" >Select a Language</form:option>
 								<form:option value="ur">Urdu</form:option>
 								<form:option value="te">Telugu</form:option>
@@ -262,7 +261,7 @@ select option[disabled]:first-child {
 				<div class="col-md-3" >
 				<div class="form-group" >
 					<label for="form-field-select-2">Video Duration </label>
-							<form:input class="form-control" path="source"/>
+							<form:input class="form-control" path="duration" id="duration"/>
 				</div>				
 				</div>
 				
@@ -270,8 +269,14 @@ select option[disabled]:first-child {
 				
 				<div class="col-md-6" >
 				<div class="form-group" style="padding-left:25px">
-					<label for="form-field-select-2">Youtube Code <span style="background-color:lightblue;padding:5px"> ex: Es324-VeYU</span></label>
-							<form:input class="form-control" path="source"/>
+					<label for="form-field-select-2">Youtube Code <span style="padding:5px;cursor: pointer;"> 
+					<span id="help" title="Example for code" data-html="true"  data-toggle="popover" data-placement="top" 
+					data-content="
+					<div > www.youtube.in/watch?v=<u><b>auxrmpxko</b></u>
+					<br><br>Youtube video url look like above link, in the url we need that highlighted information code only.</div>
+					">
+					<i class="ti-help-alt text-large text-primary"></i></span></span></label>
+							<form:input class="form-control" path="youtubeCode" id="youtubeCode"/>
 								
 				</div>				
 				</div>
@@ -280,11 +285,9 @@ select option[disabled]:first-child {
 				
 				<div class="col-md-12" style="margin-bottom: 13px;">
 				<label for="form-field-select-2">Video Title</label>
-				<input type="text"  class="form-control"  onchange=" encode_title(this.value);"/>
+				<input type="text"  class="form-control"  onchange=" encode_title(this.value);" id="title"/>
 				<form:input type="hidden" id="n_title" path="title" />
 				</div>
-				
-				
 				
 				
 				<div class="col-md-12" style="margin-top: 13px;">
@@ -354,13 +357,7 @@ select option[disabled]:first-child {
 		$('#n_title').val(res);
 	}
 	
-	function encode_discription( s )
-	{
-		
-		var res = encodeURI(s);
-		
-		$('#n_discription').val(res);
-	}
+
 	
 jQuery(document).ready(function() {
 
@@ -368,6 +365,9 @@ jQuery(document).ready(function() {
 });
 </script>
 	<script type="text/javascript">
+	$("#help").popover().on("show.bs.popover", function(e){
+    	p.data("bs.popover").tip().css({"max-width": "500px"});
+	});
 	$(document).on('click', '#close-preview', function(){ 
     $('.image-preview').popover('hide');
     // Hover befor close the preview
@@ -456,7 +456,74 @@ jQuery(document).ready(function() {
 
 		});
 
-
+function selectValidate(){
+	var party =$('#party').val();
+	var lang = $('#language').val();	
+	var youtubeCode =$('#youtubeCode').val();
+	var title =$('#title').val();
+	var duration = $('#duration').val();	
+	
+	
+	var flag = true;
+	if (party === "S" || party ===1 || party=="S" || party==1){
+			if($('#partyerror').length){
+				$('#partyerror').show();								
+			}else{
+				$( "#party" ).after( "<span class='error' id='partyerror'>&nbsp please select a party.</span>" );
+			}	
+								flag = false;
+		}else{
+			$('#partyerror').hide();
+		}
+		
+		if (lang === "S" || lang ===0 || lang=="S" || lang==0){
+			if($('#languageerror').length){
+				$('#languageerror').show();								
+			}else{
+				$( "#language" ).after( "<p class='error' id='languageerror'>language is required.</p>" );
+			}	
+								flag = false;
+		}else{
+			$('#languageerror').hide();
+		}
+		
+		if (youtubeCode === "" || youtubeCode ===" "){
+			if($('#youtubeCodeerror').length){
+				$('#youtubeCodeerror').show();								
+			}else{
+				$( "#youtubeCode" ).after( "<span class='error' id='youtubeCodeerror'>youtube video code is required.</span>" );
+			}	
+								flag = false;
+		}else{
+			$('#youtubeCodeerror').hide();
+		}
+		
+		if (title === "" || title ===" "){
+			if($('#titleerror').length){
+				$('#titleerror').show();								
+			}else{
+				$( "#title" ).after( "<span class='error' id='titleerror'>video title is required.</span>" );
+			}	
+								flag = false;
+		}else{
+			$('#titleerror').hide();
+		}
+		
+		if (duration === "" || duration ===" "){
+			if($('#durationerror').length){
+				$('#durationerror').show();								
+			}else{
+				$( "#duration" ).after( "<span class='error' id='durationerror'>video duration is required.</span>" );
+			}	
+								flag = false;
+		}else{
+			$('#durationerror').hide();
+		}
+		
+		
+		
+return flag;					
+}
 
 	</script>
 </html>

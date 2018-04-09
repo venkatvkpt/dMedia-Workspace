@@ -1,5 +1,7 @@
 package com.dmedia.dao;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -18,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dmedia.entity.NewsBean;
 import com.dmedia.entity.PoliticiansBean;
 import com.dmedia.entity.VideoDataBean;
+import com.dmedia.fcm.FireMessage;
 
 @Repository
 public class DMediaModuleDao {
@@ -75,18 +78,25 @@ public class DMediaModuleDao {
 		}	
 	}
 	
-	public boolean insertValuesNotification(NewsBean bean){
-		/*String sql="";
-		int i =jdbcTemplate.update(sql,new Object[]{bean.getNews_id(),bean.getLanguage(),bean.getTitle(),
-				bean.getDiscription(),bean.getImagepath(),bean.getNoOfViewed(),bean.getViewedLocation(),
-				bean.getState(),bean.getDistrict(),bean.getLoksaba(),bean.getAssembly(),bean.getMandal(),bean.getVillage(),
-				bean.getDate(),bean.getUser(),bean.getSource(),bean.getReceipt_no(),bean.getParty()});
-		if(i>0){
-			return true;
-		}else{
-			return false;	
-		}*/	
-		System.out.println("Notification Operation ");
+	public boolean insertValuesNotification(NewsBean bean,String qry,String title){
+		try {
+			bean.setTitle(URLDecoder.decode(bean.getTitle(), "UTF-8"));
+			bean.setDiscription(URLDecoder.decode(bean.getDiscription(), "UTF-8"));
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		//String title=bean.getTitle();
+		String message="కేంద్రం నుంచి పోలవరానికి నిధులేమీ ఆగలేదే!";
+		String sql="";
+		List<Map<String, Object>> lst = getListValues(qry);
+		String image="http://18.188.67.28:8080/"+bean.getImagepath();
+		try {
+			FireMessage fcm = new FireMessage(message, title, image);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return true;
 	}
 	

@@ -70,6 +70,15 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 	<bean id="dmediaJdbcTemplate" class="com.dmedia.dao.DMediaModuleDao">
 		<property name="jdbcTemplate" ref="jTemplate"></property>
 	</bean>
+	
+	<bean id="reportsJdbcTemplate" class="com.reports.dao.ReportsModuleDao">
+		<property name="jdbcTemplate" ref="jTemplate"></property>
+	</bean>
+	
+	<bean id="othersJdbcTemplate" class="com.others.dao.OthersModuleDao">
+		<property name="jdbcTemplate" ref="jTemplate"></property>
+	</bean>
+	
 
 
 	 <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">

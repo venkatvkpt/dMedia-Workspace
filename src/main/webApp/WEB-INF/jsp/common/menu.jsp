@@ -265,7 +265,10 @@ boolean check= name.equals("Developer");%>
 											<span class="title">Registered Members Progressive Report</span>
 										</a>
 									</li>
-									
+									<li>
+							<a href="publishedNewsReport.htm"> <span class="title">Published News 
+									 </span> </a>
+						</li>
 								</ul>
 							</li>
 					
@@ -296,44 +299,64 @@ boolean check= name.equals("Developer");%>
 						</ul>
 						<!-- end: MAIN NAVIGATION MENU -->
 						<!-- start: CORE FEATURES -->
-						<div class="navbar-title">
-							<span>Other Features</span>
-						</div>
-						<ul class="folders">
-							<li>
-								<a href="survey.htm">
-									<div class="item-content">
-										<div class="item-media">
-											<span class="fa-stack"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa  fa-rss fa-stack-1x fa-inverse"></i> </span>
-										</div>
-										<div class="item-inner">
-											<span class="title"> Survey </span>
-										</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="classifieds.htm">
-									<div class="item-content">
-										<div class="item-media">
-											<span class="fa-stack"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-newspaper-o fa-stack-1x fa-inverse"></i> </span>
-										</div>
-										<div class="item-inner">
-											<span class="title"> Classifieds </span>
-										</div>
-									</div>
-								</a>
-							</li>
-						</ul>
+					<div class="navbar-title">
+				<span>Other Features</span>
+			</div>
+			<ul class="folders">
+				<li>
+					<a href="advertisement.htm">
+						<div class="item-content">
+							<div class="item-media">
+								<span class="fa-stack"> 
+								<i class="fa fa-square fa-stack-2x"></i><!-- 
+								<i class="fa  fa-rss fa-stack-1x fa-inverse"></i> 
+								-->
+								<i class="fa fa-bullhorn fa-stack-1x fa-inverse" aria-hidden="true"></i>
+								
+								</span>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Advertisement </span>
+							</div>
+						</div> </a>
+				</li>
+				<li>
+					<a href="survey.htm">
+						<div class="item-content">
+							<div class="item-media">
+								<span class="fa-stack"> <i
+									class="fa fa-square fa-stack-2x"></i> <i
+									class="fa  fa-rss fa-stack-1x fa-inverse"></i> </span>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Survey </span>
+							</div>
+						</div> </a>
+				</li>
+				<li>
+					<a href="classifieds.htm" target="_blank">
+						<div class="item-content">
+							<div class="item-media">
+								<span class="fa-stack"> <i
+									class="fa fa-square fa-stack-2x"></i> <i
+									class="fa fa-newspaper-o fa-stack-1x fa-inverse"></i> </span>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Classifieds </span>
+							</div>
+						</div> </a>
+				</li>
+
+			</ul>
 						<!-- end: CORE FEATURES -->
-						<!-- start: DOCUMENTATION BUTTON -->
+						<!-- start: DOCUMENTATION BUTTON  -->
 						<div class="wrapper">
 							<a href="statistics.htm" class="button-o">
 								<i class="ti-stats-up"></i>
 								<span> Statistics</span>
 							</a>
 						</div>
-						<!-- end: DOCUMENTATION BUTTON -->
+						<!--  end: DOCUMENTATION BUTTON -->
 					</nav>
 				</div>
 			</div>

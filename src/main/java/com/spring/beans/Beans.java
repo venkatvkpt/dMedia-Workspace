@@ -7,6 +7,8 @@ import com.adminmodule.dao.AdminModuleDao;
 import com.adminmodule.dao.AjaxControllerDao;
 import com.commons.ContextData;
 import com.dmedia.dao.DMediaModuleDao;
+import com.others.dao.OthersModuleDao;
+import com.reports.dao.ReportsModuleDao;
 
 public class Beans {
 	
@@ -20,6 +22,9 @@ public class Beans {
 	
 	public static DMediaModuleDao dMediaModuleDao = (DMediaModuleDao)springdatabase.getBean("dmediaJdbcTemplate");
 	
+
+	public static ReportsModuleDao reportsModuleDao = (ReportsModuleDao)springdatabase.getBean("reportsJdbcTemplate");
 	
+	public static OthersModuleDao othersModuleDao = (OthersModuleDao)springdatabase.getBean("othersJdbcTemplate");
 	
 }

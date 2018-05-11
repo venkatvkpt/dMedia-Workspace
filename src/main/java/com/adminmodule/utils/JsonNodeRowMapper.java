@@ -1,5 +1,8 @@
 package com.adminmodule.utils;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -26,7 +29,9 @@ public class JsonNodeRowMapper implements RowMapper<JsonNode> {
         int columnCount = rsmd.getColumnCount();
         for (int index = 1; index <= columnCount; index++) {
             String column = JdbcUtils.lookupColumnName(rsmd, index);
+           
             Object value = rs.getObject(column);
+           
             if (value == null) {
                 objectNode.putNull(column);
             } else if (value instanceof Integer) {

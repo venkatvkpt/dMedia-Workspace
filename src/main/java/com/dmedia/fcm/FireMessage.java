@@ -17,21 +17,17 @@ private final String SERVER_KEY = "AAAAqg3-ZPw:APA91bHLZN_PCdaybMe4oHduVL_Jw86rr
 private final String API_URL_FCM = "https://fcm.googleapis.com/fcm/send";
 private JSONObject root;
 
-public FireMessage(String title, String message, String image) throws Exception {
+public FireMessage(String title, String image, String intent) throws Exception {
     root = new JSONObject();
-    String pattern = "yyyy-MM-dd HH:mm:ss";
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-    String date = simpleDateFormat.format(new Date());
+
     JSONObject data = new JSONObject();   
     data.put("_title_", "_"+title+"_");
-    data.put("_message_", "_"+message+"_");
     data.put("_image_", "_"+image+"_");
-    data.put("_timestamp_", "_"+date+"_");
+    data.put("_intent_", "_"+intent+"_");
     
     root.put("data", data);
     root.put("condition", "'global' in topics");
-     sendPushNotification(true);
-    
+    sendPushNotification(true); 
 }
 
 

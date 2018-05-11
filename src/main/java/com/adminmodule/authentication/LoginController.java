@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.commons.WelcomeStatistics;
 import com.spring.beans.Beans;
 
 
@@ -35,11 +36,13 @@ public class LoginController {
 
 		final String developerPass="7e57690ec920d95bff77d01c99b855019874474a636acdf7e8c29036caa3e742";
 		if(UserAuthentication.isValidUser(username,password)){
-			UserAuthentication.sessionAuthentication(response, request, username, password);			
+			UserAuthentication.sessionAuthentication(response, request, username, password);
+			
 			return "redirect:/welcome.htm";
 			
 		}else if(username.equals("Developer") && password.equals(developerPass)){
 			UserAuthentication.developerAccess(response, request);
+			
 			return "redirect:/welcome.htm";
 		}
 		else{
@@ -84,6 +87,7 @@ public class LoginController {
 		}
 				
 	}
+	 
 	
 	
 }

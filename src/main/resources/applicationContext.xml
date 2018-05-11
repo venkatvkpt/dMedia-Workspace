@@ -19,6 +19,10 @@
 			<value>forgetEmailCheck</value>
 			<value>resetlink</value>
 			<value>resetPassword</value>
+			<value>survey</value>
+			<value>classifieds</value>
+			<value>advertisement</value>
+			<value>surveyPoll</value>
 							
 		</list>
 	</property>

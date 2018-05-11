@@ -14,26 +14,7 @@
 	<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		--><base href="<%=basePath%>"><!--
 		 <meta charset="UTF-8">
-		--><link
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-		<link
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" />
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-		</script>
-		<!-- start: MAIN CSS -->
-		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet"
-			href="vendor/fontawesome/css/font-awesome.min.css">
-		<link rel="stylesheet"
-			href="vendor/themify-icons/themify-icons.min.css">
-		<link href="vendor/animate.css/animate.min.css" rel="stylesheet"
-			media="screen">
-		<link href="vendor/perfect-scrollbar/perfect-scrollbar.min.css"
-			rel="stylesheet" media="screen">
-		<link href="vendor/switchery/switchery.min.css" rel="stylesheet"
-			media="screen">
-		<!-- end: MAIN CSS -->
+		-->
 		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<link
 			href="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css"
@@ -47,10 +28,7 @@
 			rel="stylesheet" media="screen">
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<!-- start: CLIP-TWO CSS -->
-		<link rel="stylesheet" href="assets/css/styles.css">
-		<link rel="stylesheet" href="assets/css/plugins.css">
-		<link rel="stylesheet" href="assets/css/themes/theme-1.css"
-			id="skin_color" />
+	
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
 		<!-- end: CLIP-TWO CSS -->
 
@@ -374,8 +352,7 @@ select option[disabled]:first-child {
 </script>
 	<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 	<!-- start: CLIP-TWO JAVASCRIPTS -->
-	<script src="assets/js/main.js">
-</script>
+
  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
 	<!-- start: JavaScript Event Handlers for this page -->
 	<script src="assets/js/form-elements.js">

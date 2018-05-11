@@ -21,6 +21,7 @@ import com.commons.MessageDispatcher;
 import com.dmedia.dao.DMediaModuleDao;
 import com.dmedia.entity.NewsBean;
 import com.dmedia.utils.ImageUpload;
+import com.dmedia.utils.NotificationSender;
 import com.spring.beans.Beans;
 
 @Controller
@@ -53,7 +54,7 @@ public class BusinessNewsController {
 		}
 		bean.setNews_id(dao.getNewsSeqValue(table));
 		bean.setImagepath(ImageUpload.uploadImage(bean.getImage(), "bn"));
-
+		String title = bean.getTitle();
 		bean.setTitle(URLDecoder.decode(bean.getTitle(), "UTF-8"));
 		bean.setDiscription(URLDecoder.decode(bean.getDiscription(), "UTF-8"));
 
@@ -67,7 +68,7 @@ public class BusinessNewsController {
 		if (dao.insertValuesNews(sql,bean)) {
 			if(bean.getNotification().equalsIgnoreCase("true")){
 				
-				dao.insertValuesNotification(bean);
+				NotificationSender.make(bean, title, "BN");
 			}
 
 			redirectAttrs.addFlashAttribute("messenger", MessageDispatcher

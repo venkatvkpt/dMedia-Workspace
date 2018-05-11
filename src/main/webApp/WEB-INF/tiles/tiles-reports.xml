@@ -20,10 +20,16 @@
 	<definition name="regMemProgressiveReport" extends="base.definition">
 		<put-attribute name="NavigationName" value="" />
 		<put-attribute name="title" value="Registered Members Progressive Report" />
-		<put-attribute name="description" value="" />
-		<put-attribute name="body" value="/WEB-INF/jsp/dmedia/reports/regMemProgressiveReport.jsp" />
+		<put-attribute name="description" value="this page used for getting Registered Members Progressive Report" />
+		<put-attribute name="body" value="/WEB-INF/jsp/reports/regMemProgressiveReport.jsp" />
 	</definition>
 	
-		
+	<definition name="publishedNewsReport" extends="base.definition">
+		<put-attribute name="NavigationName" value="" />
+		<put-attribute name="title" value="Published News Report" />
+		<put-attribute name="description" value="this page used for getting Published News Report" />
+		<put-attribute name="body" value="/WEB-INF/jsp/reports/publishedNewsReport.jsp" />
+	</definition>
+			
 
 </tiles-definitions>

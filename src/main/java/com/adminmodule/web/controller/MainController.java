@@ -32,7 +32,8 @@ public class MainController {
 	
 	private void getDashboardInfo(ModelAndView model) {
 		WelcomeStatistics welcome = new WelcomeStatistics();
-		model.addObject("viewsData", "");
+		model.addObject("viewsDataThisMo", welcome.getNewsViewsThisMo());
+		model.addObject("viewsDataLastMo", welcome.getNewsViewsLastMo());
 		model.addObject("memberCount", welcome.getRegisterMembersCount());
 		model.addObject("dstPercent", welcome.getRegisterMembersPercent());
 

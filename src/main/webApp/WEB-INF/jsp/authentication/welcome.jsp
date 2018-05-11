@@ -74,42 +74,15 @@ var chart = AmCharts.makeChart( "chartdiv", {
 														<div class="panel-body no-padding partition-light-grey">
 															<table class="table">
 																<tbody>
+																<c:forEach items="${viewsDataThisMo}" var="list"  varStatus="theCount" >
 																	<tr>
-																		<td class="center">1</td>
-																		<td>Latest News</td>
-																		<td class="center">4909</td>
-																		<td><i class="fa fa-caret-down text-red"></i></td>
+																		<td class="center">${theCount.count}</td>
+																		<td>${list.NEWS_TYPE}</td>
+																		<td class="center">${list.NO_OF_VIEWS}</td>
+																		<td><i class="fa ${list.STATUS_ARROW}"></i></td>
 																	</tr>
-																	<tr>
-																		<td class="center">2</td>
-																		<td>Entertainment News</td>
-																		<td class="center">3857</td>
-																		<td><i class="fa fa-caret-up text-green"></i></td>
-																	</tr>
-																	<tr>
-																		<td class="center">3</td>
-																		<td>Sports News</td>
-																		<td class="center">1789</td>
-																		<td><i class="fa fa-caret-up text-green"></i></td>
-																	</tr>
-																	<tr>
-																		<td class="center">4</td>
-																		<td>Business News</td>
-																		<td class="center">612</td>
-																		<td><i class="fa fa-caret-down text-red"></i></td>
-																	</tr>
-																	<tr>
-																		<td class="center">5</td>
-																		<td>Education/Employment News</td>
-																		<td class="center">612</td>
-																		<td><i class="fa fa-caret-down text-red"></i></td>
-																	</tr>
-																	<tr>
-																		<td class="center">6</td>
-																		<td>Family/Health News</td>
-																		<td class="center">612</td>
-																		<td><i class="fa fa-caret-down text-red"></i></td>
-																	</tr>
+																	</c:forEach>
+																	
 																</tbody>
 															</table>
 														</div>
@@ -127,42 +100,14 @@ var chart = AmCharts.makeChart( "chartdiv", {
 														<div class="panel-body no-padding partition-light-grey">
 															<table class="table">
 																<tbody>
+																	<c:forEach items="${viewsDataLastMo}" var="list"  varStatus="theCount" >
 																	<tr>
-																		<td class="center">1</td>
-																		<td>Latest News</td>
-																		<td class="center">4909</td>
-																		<td><i class="fa fa-caret-down text-red"></i></td>
+																		<td class="center">${theCount.count}</td>
+																		<td>${list.NEWS_TYPE}</td>
+																		<td class="center">${list.NO_OF_VIEWS}</td>
+																		<td><i class="fa ${list.STATUS_ARROW}"></i></td>
 																	</tr>
-																	<tr>
-																		<td class="center">2</td>
-																		<td>Entertainment News</td>
-																		<td class="center">3857</td>
-																		<td><i class="fa fa-caret-up text-green"></i></td>
-																	</tr>
-																	<tr>
-																		<td class="center">3</td>
-																		<td>Sports News</td>
-																		<td class="center">1789</td>
-																		<td><i class="fa fa-caret-up text-green"></i></td>
-																	</tr>
-																	<tr>
-																		<td class="center">4</td>
-																		<td>Business News</td>
-																		<td class="center">612</td>
-																		<td><i class="fa fa-caret-down text-red"></i></td>
-																	</tr>
-																	<tr>
-																		<td class="center">5</td>
-																		<td>Education/Employment News</td>
-																		<td class="center">612</td>
-																		<td><i class="fa fa-caret-down text-red"></i></td>
-																	</tr>
-																	<tr>
-																		<td class="center">6</td>
-																		<td>Family/Health News</td>
-																		<td class="center">612</td>
-																		<td><i class="fa fa-caret-down text-red"></i></td>
-																	</tr>
+																	</c:forEach>
 																</tbody>
 															</table>
 														</div>
@@ -188,7 +133,7 @@ var chart = AmCharts.makeChart( "chartdiv", {
 										</div>
 										<div class="panel-footer" style="height: 262px">
 											<div class="clearfix padding-5 space5">
-												<div style='overflow:auto; width:290px;height:235px;'>
+												<div style='overflow:auto; width:295px;height:235px;'>
 												<center>
 												<table width="90%" class="table">
 												<c:forEach items="${dstPercent}" var="list"  varStatus="theCount" >
